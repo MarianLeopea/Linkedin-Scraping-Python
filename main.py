@@ -55,21 +55,21 @@ Services = values["Services"]
 
 
 def login_cat(driver):
-    # elem = driver.find_element(By.XPATH, "/html/body/div[2]/main/p[1]/a")
-    # sleep(2)
-    # elem.send_keys(Keys.ENTER)
-    # sleep(3)
+    elem = driver.find_element(By.XPATH, "/html/body/div[2]/main/p[1]/a")
+    sleep(2)
+    elem.send_keys(Keys.ENTER)
+    sleep(3)
 
-    # elem = driver.find_element(By.XPATH, '//*[@id="username"]')
-    # elem.send_keys("leopeamarian@gmail.com")
-    # sleep(3)
-    # elem = driver.find_element(By.XPATH, '//*[@id="password"]')
-    # elem.send_keys("MAR151972mar")
-    # sleep(3)
-    # elem = driver.find_element(By.XPATH, '//*[@id="organic-div"]/form/div[3]/button')
-    # elem.send_keys(Keys.ENTER)
-    # pickle.dump( driver.get_cookies() , open("cookies.pkl","wb"))
-    # sleep(3)
+    elem = driver.find_element(By.XPATH, '//*[@id="username"]')
+    elem.send_keys(address)
+    sleep(3)
+    elem = driver.find_element(By.XPATH, '//*[@id="password"]')
+    elem.send_keys(password)
+    sleep(3)
+    elem = driver.find_element(By.XPATH, '//*[@id="organic-div"]/form/div[3]/button')
+    elem.send_keys(Keys.ENTER)
+    pickle.dump( driver.get_cookies() , open("cookies.pkl","wb"))
+    sleep(3)
     elem = driver.find_element(By.XPATH, '//*[@id="global-nav-typeahead"]/input')
     sleep(2)
     elem.clear()
@@ -182,7 +182,7 @@ def location_check_cat(driver):
 def next_page(driver):
     try:
         page_nr = []
-        total_page = 1
+        total_page = nr_of_page
         for x in range(1, total_page):
             page_nr = x + 1
             driver.get(f"https://www.linkedin.com/search/results/companies/?companyHqGeo=%5B%22101174742%22%5D&keywords={search_keyword}&origin=FACETED_SEARCH&page={page_nr}")
